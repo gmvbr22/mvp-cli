@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import 'package:{{packageName}}/interface/{{name_snake}}.dart';
+
+class {{name}} extends StatefulWidget {
+  final I{{name}}Presenter presenter;
+  const {{name}}(this.presenter, {Key? key}) : super(key: key);
+
+  @override
+  _{{name}} createState() => _{{name}}();
+}
+
+class _{{name}} extends State<{{name}}> implements I{{name}}View {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+
+  @override
+  void initState() {
+    widget.presenter.view = this;
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant {{name}} oldWidget) {
+    oldWidget.presenter.view = null;
+    widget.presenter.view = this;
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void dispose() {
+    widget.presenter.view = null;
+    super.dispose();
+  }
+}
