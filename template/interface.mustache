@@ -1,7 +1,10 @@
-abstract class I{{name}}View {
+import 'package:{{packageName}}/mvp/mvp.dart';
 
+abstract class I{{name}}View {
+  // Todo {{name}} methods
 }
 
-abstract class I{{name}}Presenter {
-  I{{name}}View? view;
+abstract class I{{name}}Presenter extends Presenter<I{{name}}View> {
+  // Todo {{name}} methods
+
 }

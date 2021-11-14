@@ -6,16 +6,17 @@ const path = require('path')
 const mustache = require('mustache')
 const yaml = require('js-yaml')
 const changeCase = require('change-case')
+const { join } = require('path')
 
 const program = new commander.Command()
 program.version('0.0.1')
 
-function generate (name, output, args) {
+function generate(name, output, args) {
   const content = fs.readFileSync(path.join(__dirname, 'template', name), 'utf8')
   fs.writeFileSync(output, mustache.render(content, args))
 }
 
-function create (file) {
+function create(file) {
   if (!fs.existsSync(file)) fs.mkdirSync(file)
   return file
 }
@@ -35,6 +36,9 @@ program
       return console.log('directory not found: ' + lib)
     }
 
+    const mvp = create(join(lib, 'mvp'))
+    fs.copyFileSync(path.join(__dirname, 'assets', 'lib.g'), join(mvp, "mvp.dart"))
+    
     const args = {
       name: changeCase.pascalCase(name),
       name_snake: changeCase.snakeCase(name)
