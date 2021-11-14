@@ -6,8 +6,8 @@
     "type": "git",
     "url": "git+https://github.com/gmvbr/mvp-cli.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "gmvbr <https://github.com/gmvbr>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/gmvbr/mvp-cli/issues"
   },
